@@ -2,6 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const reactjsLink = "https://reactjs.org";
+  const frameworkName = 'React JS';
+  const buttonLearnReact = <a
+    className="App-link"
+    href={reactjsLink}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Learn {frameworkName}
+  </a>;
+  function greetingToDeveloper(name){
+    if(name){
+      return 'Hello, ' + name + '!';
+    }
+    return 'Hello Developer';
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -9,14 +25,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>{greetingToDeveloper()}</h3>
+        {buttonLearnReact}
       </header>
     </div>
   );
