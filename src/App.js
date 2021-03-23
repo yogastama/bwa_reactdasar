@@ -1,22 +1,23 @@
 import logo from './logo.svg';
+import logoVue from './logo.png';
 import './App.css';
 
 function App() {
-  let frameworkName = "React JS";
-  let descFramework = 'Library JavaScript untuk membangun antarmuka pengguna.';
-  let linkDocs = 'https://id.reactjs.org/';
+  let { frameworkName,
+  descFramework,
+  linkDocs, logoFramework } = changePage({isReact : true});
   return (
     <div className="Apps">
-      <Header title={frameworkName} />
+      <Header title={frameworkName} logoFramework={logoFramework} />
       <Landing frameworkName={frameworkName} descFramework={descFramework} linkDocs={linkDocs} />
     </div>
   );
 }
 function Header(props){
-  let { title } = props;
+  let { title, logoFramework } = props;
   return (
     <div className="Header">
-      <img src={logo} className="Header-logo"/>
+      {logoFramework}
       <div className="Header-title">
         {title}
       </div>
@@ -49,5 +50,23 @@ function Landing(props){
 }
 function sapaDev(frameworkName, name){
   return alert('Halo ' + name + ' ' + frameworkName + '!');
+}
+function changePage(props){
+  let { isReact } = props;
+  if (isReact) {
+    return {
+      frameworkName : 'React JS',
+      descFramework : 'Library JavaScript untuk membangun antarmuka pengguna.',
+      linkDocs : 'https://id.reactjs.org/',
+      logoFramework : <img src={logo} className="Header-logo"/>
+    };
+  } else {
+    return {
+      frameworkName : 'Vue JS',
+      descFramework : 'The Progressive JavaScript Framework.',
+      linkDocs : 'https://vuejs.org/',
+      logoFramework : <img src={logoVue} className="Header-logo"/>
+    };
+  }
 }
 export default App;
