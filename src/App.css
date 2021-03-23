@@ -49,3 +49,7 @@ body {
 	color: #282c34;
 	margin: 4px;
 }
+
+.Shows ul {
+	list-style-type: none;
+}

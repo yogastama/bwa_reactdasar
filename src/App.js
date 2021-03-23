@@ -1,55 +1,42 @@
 import logo from './logo.svg';
 import logoVue from './logo.png';
+import Header from './components/Header';
+import Landing from './components/Landing';
+import Opinion from './components/Opinion';
 import './App.css';
 
 function App() {
   let { frameworkName,
   descFramework,
-  linkDocs, logoFramework } = changePage({isReact : true});
+  linkDocs, logoFramework, shows, opinions } = changePage({isReact : true});
+  let showHtml = shows.map((item, index) => {
+    return <li key={index}>{item}</li>
+  });
+  let opinionsHtml = opinions.map((item, index) => {
+    return <li key={index}>{item.name} : {item.opinion}</li>
+  });
   return (
     <div className="Apps">
       <Header title={frameworkName} logoFramework={logoFramework} />
       <Landing frameworkName={frameworkName} descFramework={descFramework} linkDocs={linkDocs} />
+      <Shows shows={showHtml}/>
+      <Opinion opinions={opinionsHtml} />
     </div>
   );
 }
-function Header(props){
-  let { title, logoFramework } = props;
+
+function Shows(props){
+  let {shows} = props;
   return (
-    <div className="Header">
-      {logoFramework}
-      <div className="Header-title">
-        {title}
-      </div>
+    <div className="Shows">
+      <h3>
+        Showcase
+      </h3>
+      <ul>
+        {shows}
+      </ul>
     </div>
   );
-}
-function Landing(props){
-  let {
-    frameworkName,
-    descFramework,
-    linkDocs
-  } = props;
-  let name = 'Developers';
-  return (
-      <div className="Landing">
-        <h1>
-          {frameworkName}
-        </h1>
-        <p>
-        {descFramework}
-        </p>
-        <a className="btn-docs" href={linkDocs} target="_blank">
-          Dokumentasi
-        </a>
-        <button className="btn-docs" onClick={e => sapaDev(frameworkName, name)}>
-          Sapa saya
-        </button>
-      </div>
-  );
-}
-function sapaDev(frameworkName, name){
-  return alert('Halo ' + name + ' ' + frameworkName + '!');
 }
 function changePage(props){
   let { isReact } = props;
@@ -58,14 +45,58 @@ function changePage(props){
       frameworkName : 'React JS',
       descFramework : 'Library JavaScript untuk membangun antarmuka pengguna.',
       linkDocs : 'https://id.reactjs.org/',
-      logoFramework : <img src={logo} className="Header-logo"/>
+      logoFramework : <img src={logo} className="Header-logo"/>,
+      shows : [
+        'MJML',
+        'Stadia',
+        'Run for peace'
+      ],
+      opinions : [
+        {
+          'id' : 1,
+          'name' : 'yogas',
+          'opinion' : 'framwork react js bagus'
+        },
+        {
+          'id' : 2,
+          'name' : 'rifki',
+          'opinion' : 'framwork react js bagus'
+        },
+        {
+          'id' : 3,
+          'name' : 'abel',
+          'opinion' : 'framwork react js bagus'
+        }
+      ]
     };
   } else {
     return {
       frameworkName : 'Vue JS',
       descFramework : 'The Progressive JavaScript Framework.',
       linkDocs : 'https://vuejs.org/',
-      logoFramework : <img src={logoVue} className="Header-logo"/>
+      logoFramework : <img src={logoVue} className="Header-logo"/>,
+      shows : [
+        'Geenes',
+        'Monefy',
+        'Statusfy'
+      ],
+      opinions : [
+        {
+          'id' : 1,
+          'name' : 'yogas',
+          'opinion' : 'framwork vue js bagus'
+        },
+        {
+          'id' : 2,
+          'name' : 'rifki',
+          'opinion' : 'framwork vue js bagus'
+        },
+        {
+          'id' : 3,
+          'name' : 'abel',
+          'opinion' : 'framwork vue js bagus'
+        }
+      ]
     };
   }
 }
