@@ -13,7 +13,7 @@ function Landing(props){
           <p>
           {descFramework}
           </p>
-          <a className="btn-docs" href={linkDocs} target="_blank">
+          <a className="btn-docs" href={linkDocs} target="_blank" rel="noreferrer">
             Dokumentasi
           </a>
           <button className="btn-docs" onClick={e => sapaDev(frameworkName, name)}>

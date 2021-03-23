@@ -45,7 +45,7 @@ function changePage(props){
       frameworkName : 'React JS',
       descFramework : 'Library JavaScript untuk membangun antarmuka pengguna.',
       linkDocs : 'https://id.reactjs.org/',
-      logoFramework : <img src={logo} className="Header-logo"/>,
+      logoFramework : <img alt="Image" src={logo} className="Header-logo"/>,
       shows : [
         'MJML',
         'Stadia',
@@ -74,7 +74,7 @@ function changePage(props){
       frameworkName : 'Vue JS',
       descFramework : 'The Progressive JavaScript Framework.',
       linkDocs : 'https://vuejs.org/',
-      logoFramework : <img src={logoVue} className="Header-logo"/>,
+      logoFramework : <img alt="Image" src={logoVue} className="Header-logo"/>,
       shows : [
         'Geenes',
         'Monefy',
